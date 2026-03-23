@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modibo Traoré — Développeur Full-Stack | Data Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root {
+    --bg: #faf9f7;
+    --bg-card: #ffffff;
+    --bg-side: #f3f1ed;
+    --accent: #c9441b;
+    --accent-soft: #fdf0eb;
+    --accent-mid: rgba(201,68,27,.12);
+    --ink: #181614;
+    --ink-med: #46423d;
+    --ink-light: #78736d;
+    --ink-faint: #b0aaa3;
+    --border: #e0ddd8;
+    --border-dk: #cac5be;
+    --green: #1e9e3f;
+  }
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  @page{size:A4;margin:0}
+  @media print{
+    body{background:#fff}
+    .page{box-shadow:none;margin:0}
+    .an{opacity:1!important;transform:none!important}
+  }
+  body{
+    font-family:'Outfit',sans-serif;
+    background:#dedbd7;
+    color:var(--ink);
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  .page{
+    width:210mm;min-height:297mm;
+    margin:0 auto;background:var(--bg);
+    position:relative;overflow:hidden;
+  }
+
+  /* ═══════ HEADER ═══════ */
+  .header{
+    padding:26pt 30pt 18pt;
+    background:var(--bg-card);
+    border-bottom:2pt solid var(--accent);
+    display:grid;grid-template-columns:1fr auto;
+    gap:20pt;align-items:end;
+  }
+  .h-name{
+    font-family:'Newsreader',serif;
+    font-size:38pt;font-weight:600;
+    line-height:.95;letter-spacing:-1pt;color:var(--ink);
+  }
+  .h-name .ac{color:var(--accent);font-style:italic}
+  .h-role{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:8pt;font-weight:500;color:var(--accent);
+    letter-spacing:2pt;text-transform:uppercase;
+    margin-top:8pt;display:inline-block;
+    background:var(--accent-soft);padding:3.5pt 9pt;border-radius:2pt;
+  }
+
+  .h-contact{
+    text-align:right;font-size:8.5pt;line-height:1.9;color:var(--ink-med);
+  }
+  .h-contact i{color:var(--accent);width:12pt;text-align:center;margin-right:2pt;font-size:7pt;}
+  .h-contact .val{color:var(--ink)}
+  .h-contact a{color:var(--accent);text-decoration:none;font-weight:500}
+
+  /* ═══════ STATUS BAR ═══════ */
+  .sbar{
+    display:flex;border-bottom:1pt solid var(--border);
+    background:var(--bg);font-size:7.5pt;
+  }
+  .sbar-item{
+    flex:1;padding:4.5pt 12pt;
+    border-right:1pt solid var(--border);
+    display:flex;align-items:center;gap:4pt;
+  }
+  .sbar-item:last-child{border-right:none}
+  .sbar-dot{width:5pt;height:5pt;border-radius:50%;background:var(--green)}
+  .sbar-k{font-family:'IBM Plex Mono',monospace;font-size:6pt;color:var(--ink-faint);letter-spacing:.5pt}
+  .sbar-v{color:var(--ink-med);font-weight:500}
+
+  /* ═══════ ACCROCHE ═══════ */
+  .accroche{
+    padding:10pt 30pt;
+    border-bottom:1pt solid var(--border);
+    font-size:8.5pt;line-height:1.65;color:var(--ink-med);
+    background:var(--accent-soft);
+  }
+  .accroche strong{color:var(--ink);font-weight:600}
+
+  /* ═══════ BODY ═══════ */
+  .body{display:grid;grid-template-columns:1fr 188pt}
+  .main{padding:14pt 18pt 16pt 30pt}
+  .side{padding:14pt 22pt 16pt 14pt;background:var(--bg-side);border-left:1pt solid var(--border)}
+
+  /* ═══════ SECTION HDR ═══════ */
+  .shdr{display:flex;align-items:center;gap:6pt;margin-bottom:9pt}
+  .shdr h2{
+    font-family:'Newsreader',serif;font-size:13pt;
+    font-weight:600;color:var(--ink);white-space:nowrap;
+  }
+  .shdr h2 i{color:var(--accent);font-size:9pt;margin-right:3pt}
+  .shdr .ln{flex:1;height:.7pt;background:var(--border-dk)}
+  .shdr .ct{font-family:'IBM Plex Mono',monospace;font-size:6.5pt;color:var(--ink-faint);letter-spacing:.8pt}
+
+  /* ═══════ EXP ═══════ */
+  .exp{
+    border-left:2pt solid var(--accent);
+    padding:7pt 0 7pt 12pt;margin-bottom:6pt;margin-left:3pt;
+    position:relative;
+  }
+  .exp::before{
+    content:'';position:absolute;left:-4.5pt;top:10pt;
+    width:7pt;height:7pt;border-radius:50%;background:var(--accent);
+  }
+  .exp-top{display:flex;justify-content:space-between;align-items:baseline}
+  .exp-co{font-weight:700;font-size:10pt;color:var(--ink)}
+  .exp-loc{font-size:8pt;color:var(--ink-light);margin-left:2pt}
+  .exp-dt{font-family:'IBM Plex Mono',monospace;font-size:6.8pt;color:var(--ink-faint)}
+  .exp-role{
+    font-family:'Newsreader',serif;font-size:9pt;
+    font-style:italic;color:var(--accent);margin:1.5pt 0 4pt;
+  }
+  .exp-ul{list-style:none}
+  .exp-ul li{
+    font-size:8pt;color:var(--ink-med);line-height:1.55;
+    padding-left:10pt;position:relative;margin-bottom:.5pt;
+  }
+  .exp-ul li::before{content:'→';position:absolute;left:0;color:var(--accent);font-weight:600}
+  .exp-ul .metric{
+    font-family:'IBM Plex Mono',monospace;font-size:7pt;
+    color:var(--accent);background:var(--accent-soft);
+    padding:0 3pt;border-radius:1pt;font-weight:500;
+  }
+
+  /* ═══════ PROJECTS ═══════ */
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:5pt}
+  .pcard{
+    background:var(--bg-card);border:1pt solid var(--border);
+    border-radius:4pt;padding:8pt 9pt;
+    transition:border-color .2s,box-shadow .2s;
+  }
+  .pcard:hover{border-color:var(--accent);box-shadow:0 2pt 6pt var(--accent-mid)}
+  .pcard-name{font-weight:700;font-size:8.5pt;color:var(--ink);margin-bottom:2pt}
+  .pcard-desc{font-size:7pt;color:var(--ink-light);line-height:1.4;margin-bottom:4pt}
+  .pcard-tags{display:flex;flex-wrap:wrap;gap:2.5pt}
+  .ptag{
+    font-family:'IBM Plex Mono',monospace;font-size:6pt;font-weight:500;
+    color:var(--accent);background:var(--accent-soft);
+    border:.6pt solid rgba(201,68,27,.18);padding:1.5pt 4pt;border-radius:2pt;
+  }
+
+  /* ═══════ SIDEBAR ═══════ */
+  .ss{margin-bottom:11pt}
+  .ss-title{
+    font-family:'IBM Plex Mono',monospace;font-size:6.5pt;font-weight:600;
+    color:var(--accent);letter-spacing:2.2pt;text-transform:uppercase;
+    margin-bottom:7pt;padding-bottom:3pt;border-bottom:1pt solid var(--border-dk);
+  }
+  .ss-title i{margin-right:3pt;font-size:7pt}
+
+  /* Skill chips */
+  .sg{margin-bottom:6pt}
+  .sg-label{
+    font-family:'IBM Plex Mono',monospace;font-size:6pt;
+    color:var(--ink-faint);letter-spacing:.8pt;text-transform:uppercase;margin-bottom:2.5pt;
+  }
+  .sg-row{display:flex;flex-wrap:wrap;gap:2.5pt}
+  .chip{
+    font-family:'IBM Plex Mono',monospace;font-size:6.5pt;
+    color:var(--ink-med);background:var(--bg-card);
+    border:.6pt solid var(--border);padding:2pt 4.5pt;border-radius:2pt;
+  }
+  .chip.hi{background:var(--accent-soft);border-color:rgba(201,68,27,.22);color:var(--accent);font-weight:500}
+
+  /* Formation */
+  .edu{margin-bottom:7pt}
+  .edu-s{font-weight:700;font-size:8.5pt;color:var(--ink)}
+  .edu-d{font-size:7.5pt;color:var(--ink-light);line-height:1.3;margin-top:.5pt}
+  .edu-t{font-family:'IBM Plex Mono',monospace;font-size:6.3pt;color:var(--ink-faint);margin-top:.5pt}
+
+  /* Langues */
+  .lang{display:flex;justify-content:space-between;align-items:center;margin-bottom:5pt}
+  .lang-n{font-size:8pt;color:var(--ink)}
+  .lang-lv{font-size:6.5pt;color:var(--ink-faint);margin-right:5pt}
+  .lang-bar{width:45pt;height:3pt;background:var(--border);border-radius:2pt;overflow:hidden}
+  .lang-fill{height:100%;border-radius:2pt;background:linear-gradient(90deg,var(--accent),#e07a52)}
+  .lang-r{display:flex;align-items:center;gap:3pt}
+
+  /* Animations */
+  .an{opacity:0;transform:translateY(5pt);animation:u .4s ease forwards}
+  @keyframes u{to{opacity:1;transform:translateY(0)}}
+  .d1{animation-delay:.03s}.d2{animation-delay:.06s}.d3{animation-delay:.09s}
+  .d4{animation-delay:.12s}.d5{animation-delay:.15s}.d6{animation-delay:.18s}
+  .d7{animation-delay:.21s}.d8{animation-delay:.24s}.d9{animation-delay:.27s}
+  .d10{animation-delay:.30s}.d11{animation-delay:.33s}.d12{animation-delay:.36s}
+  .d13{animation-delay:.39s}.d14{animation-delay:.42s}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══════ HEADER ═══════ -->
+  <div class="header an d1">
+    <div>
+      <div class="h-name">Modibo <span class="ac">Traoré</span></div>
+      <div class="h-role">Développeur Full-Stack · Data Engineer</div>
+    </div>
+    <div class="h-contact">
+      <i class="fas fa-envelope"></i> tr.modibo26@gmail.com<br>
+      <i class="fas fa-phone"></i> <span class="val">+33 6 22 87 94 56</span><br>
+      <i class="fas fa-map-marker-alt"></i> <span class="val">Aubervilliers, 93300</span><br>
+      <i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/modibo-traore">linkedin.com/in/modibo-traore</a><br>
+      <i class="fab fa-github"></i> <a href="https://github.com/modibo-26">github.com/modibo-26</a><br>
+      <i class="fas fa-globe"></i> <a href="https://modibo-26.github.io/portfolio/">modibo-26.github.io/portfolio</a>
+    </div>
+  </div>
+
+  <!-- ═══════ STATUS ═══════ -->
+  <div class="sbar an d2">
+    <div class="sbar-item"><div class="sbar-dot"></div><span class="sbar-k">Statut</span><span class="sbar-v">Disponible · RQTH</span></div>
+    <div class="sbar-item"><span class="sbar-k">Âge</span><span class="sbar-v">29 ans</span></div>
+    <div class="sbar-item"><span class="sbar-k">Mobilité</span><span class="sbar-v">Île-de-France</span></div>
+    <div class="sbar-item"><span class="sbar-k">Diplôme</span><span class="sbar-v">Bac+5 BigData & IA</span></div>
+  </div>
+
+  <!-- ═══════ ACCROCHE ═══════ -->
+  <div class="accroche an d3">
+    <strong>Développeur Full-Stack & Data Engineer</strong> avec <strong>+4 ans d'expérience</strong> en conception d'applications web, mobiles et systèmes distribués. Spécialisé en <strong>Spring Boot, Angular, Python</strong> et architectures <strong>microservices (Docker, Kubernetes)</strong>. Passionné par l'ingénierie de données, le Machine Learning appliqué et les pipelines CI/CD. Recherche un poste mêlant développement back-end robuste et traitement de données à forte volumétrie.
+  </div>
+
+  <!-- ═══════ BODY ═══════ -->
+  <div class="body">
+
+    <!-- ═══════ MAIN ═══════ -->
+    <div class="main">
+
+      <!-- EXPÉRIENCES -->
+      <div class="shdr an d4">
+        <h2><i class="fas fa-briefcase"></i>Expériences</h2><div class="ln"></div><span class="ct">03</span>
+      </div>
+
+      <!-- ISOSET (poste actuel en premier) -->
+      <div class="exp an d5">
+        <div class="exp-top">
+          <div><span class="exp-co">ISOSET</span><span class="exp-loc">· Saint-Ouen (93)</span></div>
+          <span class="exp-dt">12/2025 – présent</span>
+        </div>
+        <div class="exp-role">Développeur IT — Projets techniques</div>
+        <ul class="exp-ul">
+          <li>Conception et développement d'une application Android de gestion d'actifs avec <span class="metric">scan OCR</span> et notifications push (Kotlin, Jetpack Compose, Firebase)</li>
+          <li>Architecture et déploiement d'un système de gestion aéroportuaire en <span class="metric">microservices</span> — Spring Boot, Docker, Kubernetes, Jenkins CI/CD, migré sur AWS EC2</li>
+          <li>Développement d'un modèle prédictif Bivariate Poisson (Python, FastAPI, React) atteignant <span class="metric">~65% de précision</span> sur 38 matchs de la CAN 2025</li>
+        </ul>
+      </div>
+
+      <!-- SAS Kalliste -->
+      <div class="exp an d6">
+        <div class="exp-top">
+          <div><span class="exp-co">SAS Kalliste</span><span class="exp-loc">· Bagneux (92)</span></div>
+          <span class="exp-dt">10/2021 – 12/2025</span>
+        </div>
+        <div class="exp-role">Développeur Full-Stack — Alternance (4 ans)</div>
+        <ul class="exp-ul">
+          <li>Développement et maintien d'une base de données économique et sociale à usage interne (Symfony, Angular, PHP, PostgreSQL)</li>
+          <li>Conception d'applications web sur mesure en réponse aux besoins clients — gestion de plusieurs projets en parallèle via méthode Agile/Scrum</li>
+          <li>Réduction du backlog de bugs par revues de code systématiques et refactoring ciblé</li>
+          <li>Mise en place de tests unitaires sur les modules critiques</li>
+        </ul>
+      </div>
+
+      <!-- Espace Gambon -->
+      <div class="exp an d7">
+        <div class="exp-top">
+          <div><span class="exp-co">Espace Gambon</span><span class="exp-loc">· Paris</span></div>
+          <span class="exp-dt">02/2020 – 04/2020</span>
+        </div>
+        <div class="exp-role">Développeur Web — Stage</div>
+        <ul class="exp-ul">
+          <li>Création d'un site vitrine WordPress (PHP) avec optimisation SEO et rédaction du cahier des charges</li>
+          <li>Coordination d'une équipe de 3 développeurs — planification, répartition des tâches et suivi projet</li>
+        </ul>
+      </div>
+
+      <!-- PROJETS -->
+      <div class="shdr an d8" style="margin-top:5pt">
+        <h2><i class="fas fa-code"></i>Projets techniques</h2><div class="ln"></div><span class="ct">04</span>
+      </div>
+
+      <div class="pgrid">
+        <div class="pcard an d9">
+          <div class="pcard-name">KeepGuard</div>
+          <div class="pcard-desc">Application Android de gestion d'actifs personnels — scan OCR de documents, alertes de garantie, authentification sécurisée Firebase.</div>
+          <div class="pcard-tags">
+            <span class="ptag">Kotlin</span><span class="ptag">Jetpack Compose</span>
+            <span class="ptag">Firebase</span><span class="ptag">ML Kit OCR</span>
+          </div>
+        </div>
+        <div class="pcard an d10">
+          <div class="pcard-name">Aéroport Microservices</div>
+          <div class="pcard-desc">Système de gestion aéroportuaire full-stack déployé sur AWS EC2, migration Kubernetes avec pipeline CI/CD Jenkins.</div>
+          <div class="pcard-tags">
+            <span class="ptag">Spring Boot</span><span class="ptag">React</span>
+            <span class="ptag">Docker</span><span class="ptag">K8s</span><span class="ptag">AWS</span>
+          </div>
+        </div>
+        <div class="pcard an d11">
+          <div class="pcard-name">CAN 2025 Predictor</div>
+          <div class="pcard-desc">Modèle prédictif Machine Learning (Bivariate Poisson) — pipeline de données, API REST, dashboard interactif. ~65,8% de précision.</div>
+          <div class="pcard-tags">
+            <span class="ptag">Python</span><span class="ptag">FastAPI</span>
+            <span class="ptag">React</span><span class="ptag">Pandas</span>
+          </div>
+        </div>
+        <div class="pcard an d12">
+          <div class="pcard-name">GestionEtu</div>
+          <div class="pcard-desc">Système de gestion étudiants — tableau Kanban drag-and-drop, authentification JWT, gestion des rôles multi-niveaux.</div>
+          <div class="pcard-tags">
+            <span class="ptag">Spring Boot</span><span class="ptag">Angular</span>
+            <span class="ptag">Tailwind</span><span class="ptag">JWT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ SIDEBAR ═══════ -->
+    <div class="side">
+
+      <!-- COMPÉTENCES -->
+      <div class="ss an d4">
+        <div class="ss-title"><i class="fas fa-layer-group"></i>Stack technique</div>
+
+        <div class="sg">
+          <div class="sg-label">Backend & API</div>
+          <div class="sg-row">
+            <span class="chip hi">Spring Boot</span><span class="chip hi">Python</span>
+            <span class="chip hi">FastAPI</span><span class="chip">Flask</span>
+            <span class="chip">Symfony</span><span class="chip">Node.js</span>
+            <span class="chip">REST API</span><span class="chip">JWT</span>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-label">Frontend</div>
+          <div class="sg-row">
+            <span class="chip hi">Angular</span><span class="chip hi">React</span>
+            <span class="chip">Vue 3</span><span class="chip">TypeScript</span>
+            <span class="chip">Tailwind</span>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-label">Mobile</div>
+          <div class="sg-row">
+            <span class="chip hi">Kotlin</span><span class="chip">Jetpack Compose</span>
+            <span class="chip">Firebase</span><span class="chip">MVVM</span>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-label">Data & Machine Learning</div>
+          <div class="sg-row">
+            <span class="chip hi">Pandas</span><span class="chip hi">Kafka</span>
+            <span class="chip">Scikit-learn</span><span class="chip">NumPy</span>
+            <span class="chip">SQL</span><span class="chip">PostgreSQL</span>
+            <span class="chip">MongoDB</span>
+          </div>
+        </div>
+        <div class="sg">
+          <div class="sg-label">DevOps & Cloud</div>
+          <div class="sg-row">
+            <span class="chip hi">Docker</span><span class="chip hi">Kubernetes</span>
+            <span class="chip">Jenkins CI/CD</span><span class="chip">AWS EC2</span>
+            <span class="chip">GitLab CI</span><span class="chip">Git</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMATION -->
+      <div class="ss an d7">
+        <div class="ss-title"><i class="fas fa-graduation-cap"></i>Formation</div>
+        <div class="edu">
+          <div class="edu-s">IPSSI</div>
+          <div class="edu-d">Mastère Développement BigData & IA — Bac+5</div>
+          <div class="edu-t">2023 – 2025</div>
+        </div>
+        <div class="edu">
+          <div class="edu-s">2i Tech Academy</div>
+          <div class="edu-d">Concepteur Développeur Web & Mobile — Bac+4</div>
+          <div class="edu-t">2021 – 2023</div>
+        </div>
+        <div class="edu">
+          <div class="edu-s">GRETA 92</div>
+          <div class="edu-d">Développement Web & Mobile — Bac+2</div>
+          <div class="edu-t">2019 – 2020</div>
+        </div>
+      </div>
+
+      <!-- OUTILS -->
+      <div class="ss an d9">
+        <div class="ss-title"><i class="fas fa-wrench"></i>Outils</div>
+        <div class="sg-row">
+          <span class="chip">GitLab CI</span><span class="chip">Jira</span>
+          <span class="chip">Linux</span><span class="chip">Postman</span>
+          <span class="chip">IntelliJ</span><span class="chip">VS Code</span>
+        </div>
+      </div>
+
+      <!-- LANGUES -->
+      <div class="ss an d10">
+        <div class="ss-title"><i class="fas fa-globe"></i>Langues</div>
+        <div class="lang">
+          <span class="lang-n">Français</span>
+          <div class="lang-r"><span class="lang-lv">Natif</span><div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div></div>
+        </div>
+        <div class="lang">
+          <span class="lang-n">Anglais</span>
+          <div class="lang-r"><span class="lang-lv">Avancé</span><div class="lang-bar"><div class="lang-fill" style="width:78%"></div></div></div>
+        </div>
+        <div class="lang">
+          <span class="lang-n">Espagnol</span>
+          <div class="lang-r"><span class="lang-lv">Inter.</span><div class="lang-bar"><div class="lang-fill" style="width:42%"></div></div></div>
+        </div>
+      </div>
+
+      <!-- SOFT SKILLS -->
+      <div class="ss an d11" style="margin-bottom:0">
+        <div class="ss-title" style="margin-bottom:4pt"><i class="fas fa-users"></i>Soft Skills</div>
+        <div class="sg-row" style="gap:2pt;row-gap:0pt">
+          <span class="chip">Agile / Scrum</span><span class="chip">Autonomie</span>
+          <span class="chip">Travail d'équipe</span><span class="chip">Curiosité tech</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>
