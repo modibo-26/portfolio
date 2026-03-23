@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modibo Traoré — Développeur Full-Stack & Data Engineer</title>
+<meta name="description" content="Portfolio de Modibo Traoré, Développeur Full-Stack & Data Engineer basé en Île-de-France. Spring Boot, Angular, Python, Docker, Kubernetes.">
+<meta name="author" content="Modibo Traoré">
+<meta name="theme-color" content="#D85A30">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Modibo Traoré — Développeur Full-Stack & Data Engineer">
+<meta property="og:description" content="+4 ans d'expérience en conception d'applications web, mobiles et systèmes distribués. Spring Boot, Angular, Python, Docker, Kubernetes.">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://modibo-26.github.io/portfolio/">
+<meta property="og:image" content="https://modibo-26.github.io/portfolio/og-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Portfolio Modibo Traoré — Développeur Full-Stack & Data Engineer">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Modibo Traoré — Développeur Full-Stack & Data Engineer">
+<meta name="twitter:description" content="+4 ans d'expérience en conception d'applications web, mobiles et systèmes distribués. Spring Boot, Angular, Python, Docker, Kubernetes.">
+<meta name="twitter:image" content="https://modibo-26.github.io/portfolio/og-preview.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"></noscript>
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Modibo Traoré",
+  "jobTitle": "Développeur Full-Stack & Data Engineer",
+  "url": "https://github.com/modibo-26",
+  "sameAs": [
+    "https://linkedin.com/in/modibo-traore",
+    "https://github.com/modibo-26"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Aubervilliers",
+    "addressRegion": "Île-de-France",
+    "addressCountry": "FR"
+  }
+}
+</script>
+<style>
+/* Font fallback — avoid FOIT while Google Fonts load */
+@font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:local('DM Serif Display')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:300 500;font-display:swap;src:local('DM Sans')}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* SKIP LINK */
+.skip-link{position:absolute;top:-100%;left:16px;background:var(--accent);color:#fff;padding:10px 20px;border-radius:0 0 8px 8px;font-size:14px;font-weight:500;text-decoration:none;z-index:200;transition:top .2s}
+.skip-link:focus{top:0}
+
+/* FOCUS STYLES */
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+a:focus:not(:focus-visible),button:focus:not(:focus-visible){outline:none}
+:root{
+  --accent:#D85A30;
+  --accent-light:#FAECE7;
+  --accent-mid:#F0997B;
+  --bg:#FAFAF8;
+  --bg2:#F1EFE8;
+  --text:#1A1A18;
+  --text2:#5F5E5A;
+  --text3:#888780;
+  --border:#D3D1C7;
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5vw}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--serif);font-size:18px;color:var(--text);text-decoration:none}
+.nav-logo em{font-style:italic;color:var(--accent)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle svg{width:24px;height:24px;stroke:var(--text);fill:none;stroke-width:2;stroke-linecap:round}
+
+@media(max-width:768px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;background:rgba(250,250,248,0.98);backdrop-filter:blur(12px);padding:20px 5vw;gap:16px;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:80px 5vw 60px}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent);font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:28px}
+.hero-badge::before{content:'';width:7px;height:7px;background:var(--accent);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(0.8)}}
+.hero h1{font-family:var(--serif);font-size:clamp(42px,5vw,64px);line-height:1.08;font-weight:400;margin-bottom:24px}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero-desc{font-size:16px;color:var(--text2);line-height:1.75;margin-bottom:36px;max-width:480px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#fff;border:none;padding:12px 26px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:all .2s;font-family:var(--sans);display:inline-block}
+.btn-primary:hover{background:#B84D26;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);padding:12px 26px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:all .2s;font-family:var(--sans);display:inline-block}
+.btn-outline:hover{border-color:var(--text);background:var(--bg2)}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;position:relative;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent)}
+.stat-num{font-family:var(--serif);font-size:36px;color:var(--text);line-height:1}
+.stat-num em{font-style:italic;color:var(--accent)}
+.stat-label{font-size:12px;color:var(--text3);margin-top:6px;text-transform:uppercase;letter-spacing:0.06em}
+.stat-sub{font-size:13px;color:var(--text2);margin-top:4px}
+
+/* SECTION BASE */
+section{padding:100px 5vw}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.section-title{font-family:var(--serif);font-size:clamp(28px,3.5vw,42px);font-weight:400;line-height:1.15;margin-bottom:60px}
+.section-title em{font-style:italic}
+
+/* À PROPOS */
+.about-content{max-width:720px;display:flex;flex-direction:column;gap:16px}
+.about-content p{font-size:16px;color:var(--text2);line-height:1.8}
+.about-content p:first-child{font-size:18px;color:var(--text);line-height:1.75}
+
+/* EXPERIENCES */
+#experiences{background:var(--bg2)}
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:40px 0;border-bottom:1px solid var(--border)}
+.exp-item:first-child{border-top:1px solid var(--border)}
+.exp-date{font-size:12px;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px}
+.exp-company{font-size:15px;font-weight:500;color:var(--text);margin-bottom:4px}
+.exp-location{font-size:12px;color:var(--text3)}
+.exp-role{font-family:var(--serif);font-size:20px;font-weight:400;margin-bottom:16px}
+.exp-role em{font-style:italic;color:var(--accent)}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:8px}
+.exp-bullets li{font-size:14px;color:var(--text2);padding-left:16px;position:relative;line-height:1.6}
+.exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:12px;top:2px}
+.exp-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.tag{background:#fff;border:1px solid var(--border);padding:3px 10px;border-radius:100px;font-size:11px;color:var(--text2);font-weight:500}
+
+/* STACK */
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.stack-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:28px}
+.stack-cat{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:16px}
+.stack-items{display:flex;flex-wrap:wrap;gap:8px}
+.skill-pill{background:var(--bg2);padding:5px 12px;border-radius:6px;font-size:13px;color:var(--text);font-weight:400}
+.skill-pill.primary{background:var(--accent-light);color:var(--accent);font-weight:500}
+
+/* PROJETS */
+#projets{background:var(--bg2)}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.proj-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:16px;transition:all .25s;cursor:default}
+.proj-card:hover{border-color:var(--accent-mid);transform:translateY(-3px);box-shadow:0 12px 32px rgba(216,90,48,0.08)}
+.proj-icon{width:44px;height:44px;background:var(--accent-light);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.proj-icon svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.proj-name{font-family:var(--serif);font-size:22px;font-weight:400}
+.proj-desc{font-size:14px;color:var(--text2);line-height:1.65}
+.proj-highlight{font-size:13px;color:var(--accent);font-weight:500;background:var(--accent-light);display:inline-block;padding:3px 10px;border-radius:100px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.proj-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.proj-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--text2);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:6px;transition:all .2s}
+.proj-link:hover{color:var(--accent);border-color:var(--accent)}
+.proj-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* FORMATION */
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.edu-card{border:1px solid var(--border);border-radius:12px;padding:28px;background:#fff}
+.edu-year{font-size:12px;color:var(--text3);margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em}
+.edu-school{font-size:15px;font-weight:500;margin-bottom:6px}
+.edu-degree{font-size:13px;color:var(--text2);line-height:1.5}
+.edu-level{display:inline-block;margin-top:12px;background:var(--accent-light);color:var(--accent);font-size:11px;font-weight:500;padding:3px 10px;border-radius:100px}
+
+/* CONTACT */
+#contact{background:var(--text)}
+#contact .section-label{color:var(--accent-mid)}
+#contact .section-title{color:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact-desc{font-size:16px;color:var(--bg2);line-height:1.75}
+.contact-links{display:flex;flex-direction:column;gap:16px}
+.contact-link{display:flex;align-items:center;gap:16px;padding:18px 22px;border:1px solid rgba(255,255,255,0.12);border-radius:10px;text-decoration:none;transition:all .2s}
+.contact-link:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.25)}
+.cl-icon{width:40px;height:40px;border-radius:8px;background:rgba(216,90,48,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cl-icon svg{width:18px;height:18px;stroke:var(--accent-mid);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.cl-label{font-size:11px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.cl-value{font-size:14px;color:#fff;font-weight:400}
+.status-dot{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:8px 16px;font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:28px}
+.status-dot::before{content:'';width:8px;height:8px;background:#5DCAA5;border-radius:50%;animation:pulse 2s ease-in-out infinite}
+
+footer{background:var(--text);border-top:1px solid rgba(255,255,255,0.08);padding:24px 5vw;text-align:center}
+footer p{font-size:13px;color:rgba(255,255,255,0.35)}
+
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;will-change:opacity,transform}
+.fade-up.visible{opacity:1;transform:none;will-change:auto}
+
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .exp-item{grid-template-columns:1fr;gap:12px}
+  .stack-grid{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .edu-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .nav-links{gap:16px}
+}
+@media(max-width:480px){
+  .stack-grid{grid-template-columns:1fr}
+  .hero-stats{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+<nav aria-label="Navigation principale">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Accueil">Modibo <em>Traoré</em></a>
+    <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links" id="nav-menu" role="list">
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#experiences">Expériences</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main-content">
+<section class="hero">
+  <div class="hero-inner">
+    <div class="fade-up">
+      <div class="hero-badge">Disponible · Île-de-France</div>
+      <h1>Développeur<br>Full-Stack &<br><em>Data Engineer</em></h1>
+      <p class="hero-desc">+4 ans d'expérience en conception d'applications web, mobiles et systèmes distribués. Spécialisé Spring Boot, Angular, Python et architectures microservices.</p>
+      <div class="hero-actions">
+        <a href="#projets" class="btn-primary">Voir mes projets</a>
+        <a href="cv-modibo-traore.pdf" download class="btn-outline" aria-label="Télécharger le CV de Modibo Traoré au format PDF"><svg style="width:16px;height:16px;vertical-align:-2px;margin-right:4px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>CV (PDF)</a>
+        <a href="#contact" class="btn-outline">Me contacter</a>
+      </div>
+    </div>
+    <div class="hero-stats fade-up" style="transition-delay:.15s">
+      <div class="stat-card"><div class="stat-num"><em>4+</em></div><div class="stat-label">Années d'expérience</div><div class="stat-sub">Alternance & pro</div></div>
+      <div class="stat-card"><div class="stat-num"><em>4</em></div><div class="stat-label">Projets techniques</div><div class="stat-sub">Web, Mobile, ML</div></div>
+      <div class="stat-card"><div class="stat-num"><em>Bac+5</em></div><div class="stat-label">Diplôme</div><div class="stat-sub">BigData & IA · IPSSI</div></div>
+      <div class="stat-card"><div class="stat-num"><em>3</em></div><div class="stat-label">Environnements</div><div class="stat-sub">Web, Mobile, Data</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="apropos" aria-labelledby="apropos-title">
+  <div class="section-inner">
+    <div class="section-label fade-up">À propos</div>
+    <h2 id="apropos-title" class="section-title fade-up">Quelques mots <em>sur moi</em></h2>
+    <div class="about-content fade-up">
+      <p>Passionné par la résolution de problèmes concrets, je conçois des applications robustes qui tiennent la charge — du backend en Spring Boot ou Python jusqu'au déploiement sur Kubernetes. Mon parcours de 4 ans en alternance m'a appris à livrer en équipe, itérer vite, et garder le code maintenable.</p>
+      <p>Côté data, j'aime explorer ce que les données peuvent révéler : modèles prédictifs, pipelines temps réel, visualisations parlantes. C'est cette double casquette développeur / data engineer qui me motive au quotidien.</p>
+      <p>Basé en Île-de-France, je recherche un poste où je peux avoir un vrai impact technique, dans une équipe qui valorise la qualité et la curiosité.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experiences" aria-labelledby="experiences-title">
+  <div class="section-inner">
+    <div class="section-label fade-up">Parcours</div>
+    <h2 id="experiences-title" class="section-title fade-up">Expériences <em>professionnelles</em></h2>
+    <div class="fade-up">
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Déc. 2025 — présent</div>
+          <div class="exp-company">ISOSET</div>
+          <div class="exp-location">Saint-Ouen (93)</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Développeur IT — <em>Projets techniques</em></div>
+          <ul class="exp-bullets">
+            <li>Conception d'une application Android de gestion d'actifs avec scan OCR et notifications push</li>
+            <li>Architecture d'un système de gestion aéroportuaire en microservices, déployé sur AWS EC2</li>
+            <li>Développement d'un modèle ML prédictif Bivariate Poisson évalué sur 38 matchs CAN 2025</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">Kotlin</span><span class="tag">Spring Boot</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">AWS EC2</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Oct. 2021 — Déc. 2025</div>
+          <div class="exp-company">SAS Kalliste</div>
+          <div class="exp-location">Bagneux (92)</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Développeur Full-Stack — <em>Alternance (4 ans)</em></div>
+          <ul class="exp-bullets">
+            <li>Développement et maintien d'une base de données économique et sociale interne (Symfony, Angular, PostgreSQL)</li>
+            <li>Conception d'applications web sur mesure — gestion multi-projets en méthode Agile/Scrum</li>
+            <li>Réduction du backlog de bugs par revues de code et refactoring ciblé</li>
+            <li>Mise en place de tests unitaires sur les modules critiques</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">Symfony</span><span class="tag">Angular</span><span class="tag">PHP</span><span class="tag">PostgreSQL</span><span class="tag">Scrum</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-meta">
+          <div class="exp-date">Fév. — Avr. 2020</div>
+          <div class="exp-company">Espace Gambon</div>
+          <div class="exp-location">Paris</div>
+        </div>
+        <div class="exp-content">
+          <div class="exp-role">Développeur Web — <em>Stage</em></div>
+          <ul class="exp-bullets">
+            <li>Création d'un site vitrine WordPress avec optimisation SEO et rédaction du cahier des charges</li>
+            <li>Coordination d'une équipe de 3 développeurs — planification et suivi projet</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="tag">WordPress</span><span class="tag">PHP</span><span class="tag">SEO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stack" aria-labelledby="stack-title">
+  <div class="section-inner">
+    <div class="section-label fade-up">Compétences</div>
+    <h2 id="stack-title" class="section-title fade-up">Stack <em>technique</em></h2>
+    <div class="stack-grid fade-up">
+      <div class="stack-card">
+        <div class="stack-cat">Backend & API</div>
+        <div class="stack-items">
+          <span class="skill-pill primary">Spring Boot</span><span class="skill-pill primary">Python</span><span class="skill-pill primary">FastAPI</span><span class="skill-pill">Flask</span><span class="skill-pill">Symfony</span><span class="skill-pill">Node.js</span><span class="skill-pill">REST API</span><span class="skill-pill">JWT</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">Frontend</div>
+        <div class="stack-items">
+          <span class="skill-pill primary">Angular</span><span class="skill-pill primary">React</span><span class="skill-pill">Vue 3</span><span class="skill-pill">TypeScript</span><span class="skill-pill">Tailwind</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">Mobile</div>
+        <div class="stack-items">
+          <span class="skill-pill primary">Kotlin</span><span class="skill-pill">Jetpack Compose</span><span class="skill-pill">Firebase</span><span class="skill-pill">MVVM</span><span class="skill-pill">ML Kit OCR</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">Data & Machine Learning</div>
+        <div class="stack-items">
+          <span class="skill-pill primary">Pandas</span><span class="skill-pill">Kafka</span><span class="skill-pill">Scikit-learn</span><span class="skill-pill">NumPy</span><span class="skill-pill">SQL</span><span class="skill-pill">PostgreSQL</span><span class="skill-pill">MongoDB</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">DevOps & Cloud</div>
+        <div class="stack-items">
+          <span class="skill-pill primary">Docker</span><span class="skill-pill primary">Kubernetes</span><span class="skill-pill">Jenkins CI/CD</span><span class="skill-pill">AWS EC2</span><span class="skill-pill">GitLab CI</span><span class="skill-pill">Git</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">Outils & Méthodes</div>
+        <div class="stack-items">
+          <span class="skill-pill">Agile / Scrum</span><span class="skill-pill">Jira</span><span class="skill-pill">Postman</span><span class="skill-pill">Linux</span><span class="skill-pill">IntelliJ</span><span class="skill-pill">VS Code</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets" aria-labelledby="projets-title">
+  <div class="section-inner">
+    <div class="section-label fade-up">Réalisations</div>
+    <h2 id="projets-title" class="section-title fade-up">Projets <em>techniques</em></h2>
+    <div class="proj-grid fade-up">
+      <div class="proj-card">
+        <div class="proj-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <div class="proj-name">Aéroport Microservices</div>
+        <p class="proj-desc">Système de gestion aéroportuaire full-stack déployé sur AWS EC2, avec migration Kubernetes et pipeline CI/CD Jenkins. Architecture distribuée, scalable et résiliente.</p>
+        <div class="proj-tags"><span class="tag">Spring Boot</span><span class="tag">React</span><span class="tag">Docker</span><span class="tag">K8s</span><span class="tag">AWS</span><span class="tag">Jenkins</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/modibo-26/Aeroport" target="_blank" rel="noopener" class="proj-link" aria-label="Voir le code backend Aéroport sur GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>Backend</a>
+          <a href="https://github.com/modibo-26/Aeroport-Front" target="_blank" rel="noopener" class="proj-link" aria-label="Voir le code frontend Aéroport sur GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>Frontend</a>
+          <a href="https://github.com/modibo-26/Aeroport-Clean" target="_blank" rel="noopener" class="proj-link" aria-label="Voir le code Clean Architecture Aéroport sur GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>Clean Archi</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div class="proj-name">CAN 2025 Predictor</div>
+        <p class="proj-desc">Modèle prédictif Machine Learning (Bivariate Poisson) avec pipeline de données, API REST et dashboard interactif React. Évalué sur 38 matchs réels.</p>
+
+        <div class="proj-tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/nt37vde/Competition_CAN_2025/tree/modibo" target="_blank" rel="noopener" class="proj-link" aria-label="Voir le code CAN 2025 Predictor sur GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>Code source</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <div class="proj-name">KeepGuard</div>
+        <p class="proj-desc">Application Android de gestion d'actifs personnels — scan OCR de documents, alertes de garantie automatisées, authentification sécurisée Firebase.</p>
+        <div class="proj-tags"><span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">Firebase</span><span class="tag">ML Kit OCR</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/modibo-26/KeepGuard" target="_blank" rel="noopener" class="proj-link" aria-label="Voir le code KeepGuard sur GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>Code source</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="proj-name">GestionEtu</div>
+        <p class="proj-desc">Système de gestion étudiants complet — tableau Kanban drag-and-drop, authentification JWT sécurisée, gestion des rôles multi-niveaux.</p>
+        <div class="proj-tags"><span class="tag">Spring Boot</span><span class="tag">Angular</span><span class="tag">Tailwind</span><span class="tag">JWT</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/modibo-26/Gestion_Etudiant_VDE_Backend" target="_blank" rel="noopener" class="proj-link" aria-label="Voir le code backend GestionEtu sur GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>Backend</a>
+          <a href="https://github.com/modibo-26/Gestion_Etudiant_VDE_Frontend" target="_blank" rel="noopener" class="proj-link" aria-label="Voir le code frontend GestionEtu sur GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>Frontend</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formation" aria-labelledby="formation-title">
+  <div class="section-inner">
+    <div class="section-label fade-up">Diplômes</div>
+    <h2 id="formation-title" class="section-title fade-up"><em>Formation</em> académique</h2>
+    <div class="edu-grid fade-up">
+      <div class="edu-card"><div class="edu-year">2023 — 2025</div><div class="edu-school">IPSSI</div><div class="edu-degree">Mastère Développement BigData & IA</div><span class="edu-level">Bac+5</span></div>
+      <div class="edu-card"><div class="edu-year">2021 — 2023</div><div class="edu-school">2i Tech Academy</div><div class="edu-degree">Concepteur Développeur Web & Mobile</div><span class="edu-level">Bac+4</span></div>
+      <div class="edu-card"><div class="edu-year">2019 — 2020</div><div class="edu-school">GRETA 92</div><div class="edu-degree">Développement Web & Mobile</div><span class="edu-level">Bac+2</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-title">
+  <div class="section-inner">
+    <div class="section-label fade-up">Contact</div>
+    <h2 id="contact-title" class="section-title fade-up">Travaillons <em>ensemble</em></h2>
+    <div class="contact-grid fade-up">
+      <div>
+        <div class="status-dot">Disponible · Open to work</div>
+        <p class="contact-desc">Je recherche un poste mêlant développement back-end robuste et traitement de données à forte volumétrie, en Île-de-France.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:tr.modibo26@gmail.com" class="contact-link" aria-label="Envoyer un email à tr.modibo26@gmail.com">
+          <div class="cl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></div>
+          <div><div class="cl-label">Email</div><div class="cl-value">tr.modibo26@gmail.com</div></div>
+        </a>
+        <a href="tel:+33622879456" class="contact-link" aria-label="Appeler le +33 6 22 87 94 56">
+          <div class="cl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 01.06 4.05 2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><div class="cl-label">Téléphone</div><div class="cl-value">+33 6 22 87 94 56</div></div>
+        </a>
+        <a href="https://linkedin.com/in/modibo-traore" target="_blank" rel="noopener" class="contact-link" aria-label="Voir le profil LinkedIn de Modibo Traoré">
+          <div class="cl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div><div class="cl-label">LinkedIn</div><div class="cl-value">linkedin.com/in/modibo-traore</div></div>
+        </a>
+        <a href="https://github.com/modibo-26" target="_blank" rel="noopener" class="contact-link" aria-label="Voir le profil GitHub de Modibo Traoré">
+          <div class="cl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></div>
+          <div><div class="cl-label">GitHub</div><div class="cl-value">github.com/modibo-26</div></div>
+        </a>
+        <div class="contact-link" style="cursor:default">
+          <div class="cl-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="cl-label">Localisation</div><div class="cl-value">Aubervilliers, 93300 · RQTH</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 Modibo Traoré · Développeur Full-Stack & Data Engineer</p>
+</footer>
+
+<script defer>
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+if (navToggle && navMenu) {
+  navToggle.addEventListener('click', () => {
+    const open = navMenu.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+    navToggle.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+  });
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Ouvrir le menu');
+    });
+  });
+}
+
+if ('IntersectionObserver' in window) {
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+} else {
+  document.querySelectorAll('.fade-up').forEach(el => el.classList.add('visible'));
+}
+</script>
+</body>
+</html>
